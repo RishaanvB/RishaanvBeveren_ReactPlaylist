@@ -1,0 +1,22 @@
+body {
+  color: red;
+}
+
+span{
+  /* display: flex; */
+}
+
+
+.container{
+  color: green;
+  display: flex;
+}
+
+li{
+  padding: 10px;
+  list-style-type: none;
+}
+
+.songlist{
+display: flex;
+}
