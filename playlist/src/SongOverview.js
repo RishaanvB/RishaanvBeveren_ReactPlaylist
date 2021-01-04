@@ -5,25 +5,33 @@ import SongList from "./Components/SongList"
 
 
 function SongOverview() {
-    const [songData, setSongData] = useState([{ songTitle: "title1", songArtist: "artist1" }])
-    const [inputData, setInputData] = useState({ songTitle: "", songArtist: "" })
+    const [songData, setSongData] = useState([]);
+    const [inputData, setInputData] = useState({
+        songTitle: "",
+        songArtist: "",
+        songGenre: "",
+        songRating: ""
+    });
 
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+    const handleSubmitSong = (event) => {
+        event.preventDefault();
+        setSongData(prevSongData => [...prevSongData, inputData]);
 
     }
 
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        setInputData(prevInputData => ({ ...prevInputData, [name]: value }))
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setInputData(prevInputData => ({ ...prevInputData, [name]: value }));
     }
 
     return (
         <div>
 
-            <SongForm handleChange={handleChange} inputData={inputData} />
+            <SongForm handleInputChange={handleInputChange} inputData={inputData} handleSubmitSong={handleSubmitSong} />
+            <h1>My Playlist</h1>
+
             <table style={{ width: "100%" }}>
                 <thead>
                     <tr className="song-header">
@@ -35,6 +43,7 @@ function SongOverview() {
                 </thead>
             </table>
             <br />
+
             <SongList songData={songData} />
         </div>
     );
