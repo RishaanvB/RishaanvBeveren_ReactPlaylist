@@ -1,10 +1,10 @@
 import React from "react"
 
 function SongForm(props) {
-    const { handleInputChange, inputData, handleSubmitSong } = props;
+    const { handleInputChange, inputData, handleSubmitSong, handleSorter } = props;
 
     return (
-        <form onSubmit={handleSubmitSong} >
+        <form  >
             <input
                 onChange={handleInputChange}
                 type="text"
@@ -42,7 +42,11 @@ function SongForm(props) {
                 required />
 
 
-            <button >Click Me</button>
+            <button onClick={handleSubmitSong} >Add Song</button>
+            <button onClick={handleSorter} name="title" >Sort by Title</button>
+            <button onClick={handleSorter} name="artist">Sort by Artist</button>
+            <button onClick={handleSorter} name="rating">Sort by Rating</button>
+            {/* <button  onClick={handleSorter} name="title">Filter by Genre</button> */}
         </form>
     );
 }
