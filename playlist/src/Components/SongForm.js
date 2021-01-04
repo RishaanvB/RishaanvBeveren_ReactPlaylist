@@ -4,26 +4,29 @@ function SongForm(props) {
     const { handleInputChange, inputData, handleSubmitSong, handleSorter } = props;
 
     return (
-        <form  >
+        <form onSubmit={handleSubmitSong} >
             <input
                 onChange={handleInputChange}
                 type="text"
                 name="songTitle"
                 value={inputData.songTitle}
-                required />
+                required
+            />
 
             <input
                 onChange={handleInputChange}
                 type="text"
                 name="songArtist"
                 value={inputData.songArtist}
-                required />
+                required="required"
+            />
 
             <select
                 onChange={handleInputChange}
                 value={inputData.songGenre}
                 name="songGenre"
-                required>
+                required
+            >
 
                 <option value="">--Choose Genre--</option>
                 <option >Rock</option>
@@ -39,10 +42,11 @@ function SongForm(props) {
                 value={inputData.songRating}
                 min="1"
                 max="5"
-                required />
+                required
+            />
 
 
-            <button onClick={handleSubmitSong} >Add Song</button>
+            <button>Add Song</button>
             <button onClick={handleSorter} name="title" >Sort by Title</button>
             <button onClick={handleSorter} name="artist">Sort by Artist</button>
             <button onClick={handleSorter} name="rating">Sort by Rating</button>

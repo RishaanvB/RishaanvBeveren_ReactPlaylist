@@ -59,7 +59,8 @@ function SongOverview() {
                 handleInputChange={handleInputChange}
                 inputData={inputData}
                 handleSubmitSong={handleSubmitSong}
-                handleSorter={handleSorter} />
+                handleSorter={handleSorter} 
+               />
 
             <h1>My Playlist</h1>
 
