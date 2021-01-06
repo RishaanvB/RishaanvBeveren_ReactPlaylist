@@ -20,3 +20,16 @@ li{
 .songlist{
 display: flex;
 }
+
+
+.delete-btn{
+  width: 100px;
+  background-color: rgb(216, 29, 29);
+  color: whitesmoke;
+  
+}
+.delete-btn:hover{
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: rgb(216, 29, 29);
+}

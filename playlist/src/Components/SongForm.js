@@ -18,7 +18,7 @@ function SongForm(props) {
                 type="text"
                 name="songArtist"
                 value={inputData.songArtist}
-                required="required"
+                required
             />
 
             <select
@@ -44,6 +44,7 @@ function SongForm(props) {
                 max="5"
                 required
             />
+         
 
 
             <button>Add Song</button>
