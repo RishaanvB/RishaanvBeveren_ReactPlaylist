@@ -12,7 +12,7 @@ function SongFilter(props) {
                 <legend>Filter by Genre  </legend>
                 <select
                     name="songGenre">
-                    <option value="ShowAll">Show All</option>
+                    <option value="">Show All</option>
                     <option >Rock</option>
                     <option >Dance</option>
                     <option >Country</option>
@@ -24,7 +24,7 @@ function SongFilter(props) {
                 <legend>Filter by Rating  </legend>
                 <select
                     name="songGenre">
-                    <option value="ShowAll">Show All</option>
+                    <option value="">Show All</option>
                     <option >1</option>
                     <option >2</option>
                     <option >3</option>

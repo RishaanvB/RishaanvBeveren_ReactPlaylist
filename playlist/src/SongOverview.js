@@ -24,39 +24,29 @@ function SongOverview() {
 
     });
     const [typeIsSorted, setTypeIsSorted] = useState("");
-    const [isFiltered, setIsFiltered] = useState(false);
-
-    const [filteredSongData, setFilteredSongData] = useState([]);
-
-
-    console.log(filteredSongData);
-    console.log(songData);
+    const [songGenre, setsongGenre] = useState("")
+    const [songRating, setsongRating] = useState("")
+    console.log(songData, "songData")
+// ========================================================================================
     //FiLTERS
+  
     const handleFilteredGenre = (event) => {
         event.preventDefault();
         const { value } = event.target;
-        if (value === "ShowAll") {
-
-            setIsFiltered(false);
-        } else {
-
-            setFilteredSongData([...songData].filter(song => song.songGenre === value));
-            setIsFiltered(true);
-        }
+        setsongGenre(value)
+      
     }
+    
 
-    const handleFilteredRating = (event) => {
-        event.preventDefault();
-        const { value } = event.target;
-        if (value === "ShowAll") {
 
-            setIsFiltered(false);
-        } else {
+  // ========================================================================================
 
-            setFilteredSongData([...songData].filter(song => song.songRating === value));
-            setIsFiltered(true);
-        }
-    }
+  const handleFilteredRating = (event) => {
+    event.preventDefault();
+    const { value } = event.target;
+    setsongRating(value)
+  
+}
 
     //FiLTERS
 
@@ -67,13 +57,11 @@ function SongOverview() {
     const handleDeleteSong = selectedId => {
 
         setSongData([...songData].filter(song => song.id !== selectedId))
-        setFilteredSongData([...songData].filter(song => song.id !== selectedId));
 
     }
 
     const handleDeleteAll = () => {
         setSongData([]);
-        setFilteredSongData([]);
 
     }
 
@@ -83,13 +71,13 @@ function SongOverview() {
     const handleSubmitSong = event => {
         event.preventDefault();
         handleInputChange(event);
-        setSongData(prevSongData => [...prevSongData, inputData]);
-        setFilteredSongData(prevFilteredSongData => [...prevFilteredSongData, inputData]);
+        // setSongData(prevSongData => [...prevSongData, inputData]);
+        console.log(inputData, "inputdata")
+        setSongData(prevSongData => [...prevSongData, inputData]  );
         setTypeIsSorted("");
     }
 
     const handleInputChange = event => {
-
         event.preventDefault();
         const { name, value } = event.target;
         setInputData(prevInputData => ({ ...prevInputData, [name]: value, id: generateId() }));
@@ -152,7 +140,7 @@ function SongOverview() {
             </table>
             <br />
 
-            <SongList songData={isFiltered ? filteredSongData : songData} handleDeleteSong={handleDeleteSong} />
+            <SongList songData={songData} handleDeleteSong={handleDeleteSong}  songGenre={songGenre} songRating={songRating}  />
             <br />
             <button onClick={handleDeleteAll}>Delete All</button>
         </div>
