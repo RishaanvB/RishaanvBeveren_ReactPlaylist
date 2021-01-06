@@ -26,7 +26,6 @@ function SongOverview() {
     const [typeIsSorted, setTypeIsSorted] = useState("");
     const [songGenre, setsongGenre] = useState("")
     const [songRating, setsongRating] = useState("")
-    console.log(songData, "songData")
 // ========================================================================================
     //FiLTERS
   
@@ -72,7 +71,6 @@ function SongOverview() {
         event.preventDefault();
         handleInputChange(event);
         // setSongData(prevSongData => [...prevSongData, inputData]);
-        console.log(inputData, "inputdata")
         setSongData(prevSongData => [...prevSongData, inputData]  );
         setTypeIsSorted("");
     }

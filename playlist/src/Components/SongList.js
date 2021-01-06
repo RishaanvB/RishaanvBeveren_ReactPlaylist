@@ -3,16 +3,19 @@ import Song from "./Song"
 
 function SongList(props) {
     const { songData, handleDeleteSong, songGenre, songRating } = props;
-    console.log(songGenre, "songGenre")
-    console.log(songRating, "songRating")
-    console.log(songData)
 
     const filterOnGenre = (genre, rating) => {
         const filteredSongsByGenre = songData.filter(song => song.songGenre === genre);
         const filteredSongsByRating = songData.filter(song => song.songRating === rating);
         const allFilteredSongs = [...filteredSongsByGenre, ...filteredSongsByRating];
+        const uniqueSongs = allFilteredSongs.filter((song, index) => {
+            return allFilteredSongs.indexOf(song) === index;
+        });
 
-        return allFilteredSongs
+        if (songGenre && songRating) {
+            return uniqueSongs.filter(song => song.songGenre === genre && song.songRating === rating);
+        }
+        return uniqueSongs;
     }
 
 
