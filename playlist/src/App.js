@@ -1,9 +1,23 @@
 import React from "react"
-import SongOverview from "./SongOverview"
+import { Link, Route, Switch } from "react-router-dom"
+
+import SongOverview from "./Containers/SongOverview"
+import About from "./Routers/About"
+
 
 function App() {
     return (
-        <SongOverview />
+        <>
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+            </nav>
+            <Switch>
+
+                <Route exact path="/"> <SongOverview /> </Route>
+                <Route path="/about"> <About /> </Route>
+            </Switch>
+        </>
     );
 };
 

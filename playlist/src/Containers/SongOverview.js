@@ -1,11 +1,11 @@
 
 
 import React, { useState } from "react"
-import SongFilter from "./Components/SongFilter";
-import SongForm from "./Components/SongForm"
-import SongList from "./Components/SongList"
+import SongFilter from "../Components/SongFilter";
+import SongForm from "../Components/SongForm"
+import SongList from "../Components/SongList"
 
-import { sortByTitle, sortByArtist, sortByRating, reverseArray } from "./Functions/sorterFunctions"
+import { sortByTitle, sortByArtist, sortByRating, reverseArray } from "../Functions/sorterFunctions"
 
 /* 
 optioneel: waarom 

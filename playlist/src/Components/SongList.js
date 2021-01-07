@@ -5,15 +5,18 @@ function SongList(props) {
     const { songData, handleDeleteSong, songGenre, songRating } = props;
 
     const filterOnGenre = (genre, rating) => {
+        const filteredByAll = songData.filter(song => song.songGenre === genre && song.songRating === rating);
+        
         const filteredSongsByGenre = songData.filter(song => song.songGenre === genre);
         const filteredSongsByRating = songData.filter(song => song.songRating === rating);
+        
         const allFilteredSongs = [...filteredSongsByGenre, ...filteredSongsByRating];
+        console.log(allFilteredSongs, "allfiltered")
         const uniqueSongs = allFilteredSongs.filter((song, index) => {
             return allFilteredSongs.indexOf(song) === index;
         });
-
-        if (songGenre && songRating) {
-            return uniqueSongs.filter(song => song.songGenre === genre && song.songRating === rating);
+        if (genre && rating) {
+            return filteredByAll;
         }
         return uniqueSongs;
     }
