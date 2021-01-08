@@ -4,7 +4,7 @@ import Song from "./Song"
 function SongList(props) {
     const { songData, handleDeleteSong, songGenre, songRating, filterOnGenre } = props;
 
-   
+
 
     const filteredData = filterOnGenre(songGenre, songRating, songData).map(data => <Song
         songTitle={data.songTitle}
@@ -28,20 +28,9 @@ function SongList(props) {
     />)
 
     return (
-        <>
-            <table style={{ width: "100%" }}>
-                <thead>
-                    <tr className="song-header">
-                        <th className="song-row__item">Song</th>
-                        <th className="song-row__item">Artist</th>
-                        <th className="song-row__item">Genre</th>
-                        <th className="song-row__item">Rating</th>
-                    </tr>
-                </thead>
-            </table>
-            <br />
+        <div className="songlist">
             {!songRating && !songGenre ? unFilteredSongData : filteredData}
-        </>
+        </div>
     );
 }
 

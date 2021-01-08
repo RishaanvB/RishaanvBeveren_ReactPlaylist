@@ -3,19 +3,14 @@
 import React, { useState } from "react"
 import SongForm from "./SongForm"
 import SongList from "../Components/SongList/SongList"
-import Logo from "../Components/Logo"
 
 import { sortByTitle, sortByArtist, sortByRating, reverseArray } from "../helperfunctions/sorterFunctions"
-import filterOnGenre  from "../helperfunctions/filterFunction"
-/* 
-optioneel: waarom 
-const handleDeleteSong = (selectedId) => setSongData([...songData].filter(song => song.id !== selectedId))
- niet werkt zonder brackets in ...songData */
+import filterOnGenre from "../helperfunctions/filterFunction"
+
 
 
 function SongOverview() {
     const [songData, setSongData] = useState([]);
-
     const [inputData, setInputData] = useState({
         songTitle: "",
         songArtist: "",
@@ -26,51 +21,36 @@ function SongOverview() {
     const [typeIsSorted, setTypeIsSorted] = useState("");
     const [songGenre, setsongGenre] = useState("")
     const [songRating, setsongRating] = useState("")
-    // ========================================================================================
-    //FiLTERS
 
+    const generateId = () => Math.random().toString(36).substr(2, 10);
+    const handleDeleteSong = selectedId => setSongData([...songData].filter(song => song.id !== selectedId));
+    const handleDeleteAll = () => setSongData([]);
+
+
+    //FiLTERS
+// kan beide filters? mss korter met array destructuring??
     const handleFilteredGenre = (event) => {
         event.preventDefault();
         const { value } = event.target;
-        setsongGenre(value)
+        setsongGenre(value);
 
     }
-
-
-
-    // ========================================================================================
 
     const handleFilteredRating = (event) => {
         event.preventDefault();
         const { value } = event.target;
-        setsongRating(value)
+        setsongRating(value);
 
     }
 
     //FiLTERS
 
 
-    const generateId = () => Math.random().toString(36).substr(2, 10);
-
-    //DELETE FUNCTIONS
-    const handleDeleteSong = selectedId => {
-
-        setSongData([...songData].filter(song => song.id !== selectedId))
-
-    }
-
-    const handleDeleteAll = () => {
-        setSongData([]);
-
-    }
-
-    //DELETE FUNCTIONS
 
 
     const handleSubmitSong = event => {
         event.preventDefault();
         handleInputChange(event);
-        // setSongData(prevSongData => [...prevSongData, inputData]);
         setSongData(prevSongData => [...prevSongData, inputData]);
         setTypeIsSorted("");
     }
@@ -85,6 +65,7 @@ function SongOverview() {
 
     //SORTER
     const handleSorter = event => {
+        console.log("sorter button clicked")
         const { name } = event.target;
         event.preventDefault();
         switch (name) {
@@ -114,7 +95,6 @@ function SongOverview() {
 
     return (
         <div >
-            <Logo />
             <SongForm
                 handleFilteredGenre={handleFilteredGenre}
                 handleFilteredRating={handleFilteredRating}
@@ -130,8 +110,9 @@ function SongOverview() {
                 handleDeleteSong={handleDeleteSong}
                 songGenre={songGenre}
                 songRating={songRating} />
-            <br />
-            <button onClick={handleDeleteAll}>Delete All</button>
+            <div className="delete_all-btn">
+                <h1 onClick={handleDeleteAll} >Delete All</h1>
+            </div>
         </div>
     );
 

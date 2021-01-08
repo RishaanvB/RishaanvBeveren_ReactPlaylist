@@ -1,4 +1,5 @@
 import React from "react"
+import Logo from "./Components/Logo"
 import { Link, Route, Switch } from "react-router-dom"
 
 import SongOverview from "./Containers/SongOverview"
@@ -9,8 +10,11 @@ function App() {
     return (
         <div className="app-container">
             <nav className="navigation">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
+                <Logo />
+                <div>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                </div>
             </nav>
 
             <Switch>

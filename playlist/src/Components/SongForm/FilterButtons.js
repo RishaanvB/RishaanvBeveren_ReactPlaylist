@@ -6,7 +6,7 @@ function FilterButtons(props) {
 
 
     return (
-        <>
+        <div className="filter-btns">
 
             <fieldset onChange={handleFilteredGenre}>
                 <legend>Filter by Genre  </legend>
@@ -32,8 +32,8 @@ function FilterButtons(props) {
                     <option >5</option>
                 </select>
             </fieldset>
-        </>
-        )
+        </div>
+    )
 }
 
 

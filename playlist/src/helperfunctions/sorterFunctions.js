@@ -1,11 +1,3 @@
-// sortBy functions copy/paste van https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
-
-
-
-
-
-
-
 const sortByTitle = (array) => {
     const copiedArray = [...array];
     copiedArray.sort((a, b) => {
