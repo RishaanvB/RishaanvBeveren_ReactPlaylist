@@ -1,35 +1,139 @@
-body {
-  color: black;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Orienta", sans-serif;
 }
 
-span{
-  /* display: flex; */
+.app-container {
+  background: url("/assets/bg-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 60%;
+  width: 100%;
+  height: 45vh;
 }
 
-
-.container{
-  color: green;
+.navigation {
   display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  width: 100%;
+  font-size: 2.3rem;
 }
 
-li{
-  padding: 10px;
-  list-style-type: none;
-}
-
-.songlist{
-display: flex;
-}
-
-
-.delete-btn{
-  width: 100px;
-  background-color: rgb(216, 29, 29);
+a {
+  position: relative;
+  margin: 30px;
   color: whitesmoke;
-  
 }
-.delete-btn:hover{
-  cursor: pointer;
-  background-color: whitesmoke;
-  color: rgb(216, 29, 29);
+
+/* Home and About navLinks */
+a:nth-child(1)::before {
+  position: absolute;
+  content: "";
+  top: 30px;
+  width: 75%;
+  height: 13px;
+  background: whitesmoke;
+  opacity: 0.7;
+  transition: width 0.1s ease-in-out;
+  transition-duration: 0.3s;
+}
+
+a:nth-child(1):hover::before {
+  width: 110%;
+}
+/* Home and About navLinks */
+
+/* LOGO START*/
+
+.logo {
+  color: whitesmoke;
+  margin-left: 10%;
+  width: 400px;
+  height: 250px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.wincify-text {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.wincify-text::before {
+  content: "";
+  position: absolute;
+  background-color: #c0824e;
+  width: 180%;
+  height: 15px;
+  bottom: 10px;
+  opacity: 0.6;
+}
+
+.note-image {
+  position: relative;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  position: relative;
+  width: 75px;
+}
+.note-image::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 180%;
+  height: 15px;
+  bottom: 100px;
+}
+
+.playlist-text {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-size: 3rem;
+  font-weight: 200;
+
+}
+
+/* LOGO END */
+
+/* About Page START*/
+section {
+  width: 100%;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  color: white;
+  text-align: center;
+  width: 30%;
+  line-height: 1.5rem;
+}
+
+.hallo-text {
+  font-size: 4rem;
+  margin-bottom: 50px;
+  transform: rotateY(360deg);
+  animation: two 4s infinite;
+  animation-direction: alternate;
+  background-color: black;
+}
+@keyframes two {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }

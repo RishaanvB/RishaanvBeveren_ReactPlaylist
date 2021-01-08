@@ -1,7 +1,7 @@
 import React from "react"
 
 
-function SongFilter(props) {
+function FilterButtons(props) {
     const { handleFilteredGenre, handleFilteredRating } = props
 
 
@@ -37,4 +37,4 @@ function SongFilter(props) {
 }
 
 
-export default SongFilter;
+export default FilterButtons;

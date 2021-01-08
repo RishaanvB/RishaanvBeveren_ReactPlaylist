@@ -1,12 +1,12 @@
 
 
 import React, { useState } from "react"
-import SongFilter from "../Components/SongFilter";
-import SongForm from "../Components/SongForm"
-import SongList from "../Components/SongList"
+import SongForm from "./SongForm"
+import SongList from "../Components/SongList/SongList"
+import Logo from "../Components/Logo"
 
-import { sortByTitle, sortByArtist, sortByRating, reverseArray } from "../Functions/sorterFunctions"
-
+import { sortByTitle, sortByArtist, sortByRating, reverseArray } from "../helperfunctions/sorterFunctions"
+import filterOnGenre  from "../helperfunctions/filterFunction"
 /* 
 optioneel: waarom 
 const handleDeleteSong = (selectedId) => setSongData([...songData].filter(song => song.id !== selectedId))
@@ -26,26 +26,26 @@ function SongOverview() {
     const [typeIsSorted, setTypeIsSorted] = useState("");
     const [songGenre, setsongGenre] = useState("")
     const [songRating, setsongRating] = useState("")
-// ========================================================================================
+    // ========================================================================================
     //FiLTERS
-  
+
     const handleFilteredGenre = (event) => {
         event.preventDefault();
         const { value } = event.target;
         setsongGenre(value)
-      
+
     }
-    
 
 
-  // ========================================================================================
 
-  const handleFilteredRating = (event) => {
-    event.preventDefault();
-    const { value } = event.target;
-    setsongRating(value)
-  
-}
+    // ========================================================================================
+
+    const handleFilteredRating = (event) => {
+        event.preventDefault();
+        const { value } = event.target;
+        setsongRating(value)
+
+    }
 
     //FiLTERS
 
@@ -71,7 +71,7 @@ function SongOverview() {
         event.preventDefault();
         handleInputChange(event);
         // setSongData(prevSongData => [...prevSongData, inputData]);
-        setSongData(prevSongData => [...prevSongData, inputData]  );
+        setSongData(prevSongData => [...prevSongData, inputData]);
         setTypeIsSorted("");
     }
 
@@ -113,32 +113,23 @@ function SongOverview() {
 
 
     return (
-        <div>
-            <SongFilter handleFilteredGenre={handleFilteredGenre} handleFilteredRating={handleFilteredRating} />
+        <div >
+            <Logo />
             <SongForm
-
+                handleFilteredGenre={handleFilteredGenre}
+                handleFilteredRating={handleFilteredRating}
                 handleInputChange={handleInputChange}
                 inputData={inputData}
                 handleSubmitSong={handleSubmitSong}
                 handleSorter={handleSorter}
-
             />
 
-            <h1>My Playlist</h1>
-
-            <table style={{ width: "100%" }}>
-                <thead>
-                    <tr className="song-header">
-                        <th className="song-row__item">Song</th>
-                        <th className="song-row__item">Artist</th>
-                        <th className="song-row__item">Genre</th>
-                        <th className="song-row__item">Rating</th>
-                    </tr>
-                </thead>
-            </table>
-            <br />
-
-            <SongList songData={songData} handleDeleteSong={handleDeleteSong}  songGenre={songGenre} songRating={songRating}  />
+            <SongList
+                filterOnGenre={filterOnGenre}
+                songData={songData}
+                handleDeleteSong={handleDeleteSong}
+                songGenre={songGenre}
+                songRating={songRating} />
             <br />
             <button onClick={handleDeleteAll}>Delete All</button>
         </div>
