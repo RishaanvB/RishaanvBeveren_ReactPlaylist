@@ -268,10 +268,6 @@ option {
 }
 
 
-.animate-on-delete{
-  transition: transform 0.1s ease-in;
-  transform: scale(0.1);
-}
 
 
 .delete_all-btn {
@@ -284,6 +280,10 @@ option {
   width: 10%;
   padding: 10px 30px;
   cursor: pointer;
+}
+
+.empty-playlist{
+  text-align: center;
 }
 
 /* About Page START*/

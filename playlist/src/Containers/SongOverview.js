@@ -28,7 +28,7 @@ function SongOverview() {
 
 
     //FiLTERS
-// kan beide filters? mss korter met array destructuring??
+    // kan beide filters? mss korter met array destructuring??
     const handleFilteredGenre = (event) => {
         event.preventDefault();
         const { value } = event.target;
@@ -110,9 +110,13 @@ function SongOverview() {
                 handleDeleteSong={handleDeleteSong}
                 songGenre={songGenre}
                 songRating={songRating} />
-            <div className="delete_all-btn">
-                <h1 onClick={handleDeleteAll} >Delete All</h1>
-            </div>
+            {songData.length === 0 ?
+                <h1 className="empty-playlist" >Your playlist is empty</h1> :
+
+                <div className="delete_all-btn">
+                    <h1 onClick={handleDeleteAll} >Delete All</h1>
+                </div>}
+
         </div>
     );
 

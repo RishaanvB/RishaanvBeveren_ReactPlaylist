@@ -1,4 +1,4 @@
-const sortByTitle = (array) => {
+export const sortByTitle = (array) => {
     const copiedArray = [...array];
     copiedArray.sort((a, b) => {
         const fa = a.songTitle.toLowerCase(),
@@ -15,7 +15,7 @@ const sortByTitle = (array) => {
     return copiedArray;
 }
 
-const sortByArtist = (array) => {
+export const sortByArtist = (array) => {
     const copiedArray = [...array];
     copiedArray.sort((a, b) => {
         const fa = a.songArtist.toLowerCase(),
@@ -32,7 +32,7 @@ const sortByArtist = (array) => {
     return copiedArray;
 }
 
-const sortByRating = (array) => {
+export const sortByRating = (array) => {
     const copiedArray = [...array];
     copiedArray.sort((a, b) => {
         return a.songRating - b.songRating;
@@ -41,10 +41,7 @@ const sortByRating = (array) => {
     return copiedArray;
 }
 
-const reverseArray = (array) => {
+export const reverseArray = (array) => {
     const copiedArray = [...array];
     return copiedArray.reverse();
 }
-
-
-module.exports = { sortByTitle, sortByArtist, sortByRating, reverseArray }
