@@ -28,7 +28,6 @@ function SongOverview() {
 
 
     //FiLTERS
-    // kan beide filters? mss korter met array destructuring??
     const handleFilteredGenre = (event) => {
         event.preventDefault();
         const { value } = event.target;
@@ -42,10 +41,6 @@ function SongOverview() {
         setsongRating(value);
 
     }
-
-    //FiLTERS
-
-
 
 
     const handleSubmitSong = event => {
@@ -65,7 +60,6 @@ function SongOverview() {
 
     //SORTER
     const handleSorter = event => {
-        console.log("sorter button clicked")
         const { name } = event.target;
         event.preventDefault();
         switch (name) {
@@ -90,7 +84,6 @@ function SongOverview() {
             default:
         }
     }
-    //SORTER
 
 
     return (
@@ -109,7 +102,9 @@ function SongOverview() {
                 songData={songData}
                 handleDeleteSong={handleDeleteSong}
                 songGenre={songGenre}
-                songRating={songRating} />
+                songRating={songRating}
+            />
+
             {songData.length === 0 ?
                 <h1 className="empty-playlist" >Your playlist is empty</h1> :
 
