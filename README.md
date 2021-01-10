@@ -1,4 +1,4 @@
-Readme: 
+ 
 -export functions in helperfunctions folder heb ik veranderd naar "export default"  ipv module.exports . Ik wist niet waarom, maar hij kon de functies niet exporteren 
 als ik hem naar netlify probeerde te deployen. 
 
